@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формулы | ЕГЭ Математика</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: #f0f7ff;
+            color: #1e2a3a;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #f1c40f;
+        }
+        main {
+            flex: 1;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        .formula-category {
+            margin-bottom: 2rem;
+        }
+        .formula-category h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .formula-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .formula-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .formula-card:hover {
+            transform: translateY(-3px);
+        }
+        .formula-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .formula-card p {
+            color: #555;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        .formula-text {
+            font-family: monospace;
+            background: #f4f4f4;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            .formula-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="formulas.html">Формулы</a></li>
+                <li><a href="test.html">Тест</a></li>
+                <li><a href="thanks.html">Обратная связь</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Формулы по разделам</h1>
+            
+            <!-- Алгебра -->
+            <div class="formula-category">
+                <h2>🧮 Алгебра</h2>
+                <div class="formula-grid">
+                    <div class="formula-card">
+                        <h3>Формулы сокращённого умножения</h3>
+                        <div class="formula-text">
+                            (a+b)² = a² + 2ab + b²<br>
+                            (a−b)² = a² − 2ab + b²<br>
+                            a² − b² = (a−b)(a+b)<br>
+                            (a+b)³ = a³ + 3a²b + 3ab² + b³<br>
+                            (a−b)³ = a³ − 3a²b + 3ab² − b³<br>
+                            a³ + b³ = (a+b)(a² − ab + b²)<br>
+                            a³ − b³ = (a−b)(a² + ab + b²)
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Арифметическая прогрессия</h3>
+                        <div class="formula-text">
+                            aₙ = a₁ + (n−1)d<br>
+                            Sₙ = (a₁ + aₙ)·n / 2 = (2a₁ + (n−1)d)·n / 2
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Геометрическая прогрессия</h3>
+                        <div class="formula-text">
+                            bₙ = b₁·qⁿ⁻¹<br>
+                            Sₙ = b₁·(qⁿ − 1)/(q − 1), q ≠ 1<br>
+                            Сумма бесконечной убывающей: S = b₁/(1−q), |q|<1
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Свойства степеней</h3>
+                        <div class="formula-text">
+                            aᵐ·aⁿ = aᵐ⁺ⁿ<br>
+                            aᵐ / aⁿ = aᵐ⁻ⁿ<br>
+                            (aᵐ)ⁿ = aᵐⁿ<br>
+                            (ab)ⁿ = aⁿ·bⁿ<br>
+                            (a/b)ⁿ = aⁿ / bⁿ<br>
+                            a⁰ = 1, a⁻ⁿ = 1/aⁿ
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Свойства корней</h3>
+                        <div class="formula-text">
+                            √(ab) = √a·√b<br>
+                            √(a/b) = √a / √b<br>
+                            (√a)² = a<br>
+                            √(a²) = |a|<br>
+                            ⁿ√(aᵐ) = aᵐ⁄ⁿ
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Свойства логарифмов</h3>
+                        <div class="formula-text">
+                            logₐ(xy) = logₐx + logₐy<br>
+                            logₐ(x/y) = logₐx − logₐy<br>
+                            logₐxᵏ = k·logₐx<br>
+                            logₐb = 1 / log_b a<br>
+                            logₐb = log_c b / log_c a<br>
+                            a^(logₐb) = b
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Квадратные уравнения</h3>
+                        <div class="formula-text">
+                            ax² + bx + c = 0<br>
+                            D = b² − 4ac<br>
+                            x₁₂ = (−b ± √D) / (2a)<br>
+                            Теорема Виета: x₁ + x₂ = −b/a, x₁·x₂ = c/a
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Разложение на множители</h3>
+                        <div class="formula-text">
+                            ax² + bx + c = a(x − x₁)(x − x₂)<br>
+                            Вынесение общего множителя<br>
+                            Группировка<br>
+                            Использование ФСУ
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Таблица квадратов</h3>
+                        <div class="formula-text">
+                            1²=1, 2²=4, 3²=9, 4²=16, 5²=25, 6²=36, 7²=49, 8²=64, 9²=81, 10²=100,<br>
+                            11²=121, 12²=144, 13²=169, 14²=196, 15²=225, 16²=256, 17²=289, 18²=324, 19²=361, 20²=400
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Таблица степеней</h3>
+                        <div class="formula-text">
+                            2¹=2, 2²=4, 2³=8, 2⁴=16, 2⁵=32, 2⁶=64, 2⁷=128, 2⁸=256, 2⁹=512, 2¹⁰=1024<br>
+                            3¹=3, 3²=9, 3³=27, 3⁴=81, 3⁵=243, 3⁶=729<br>
+                            5²=25, 5³=125, 5⁴=625<br>
+                            10²=100, 10³=1000
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Планиметрия -->
+            <div class="formula-category">
+                <h2>📐 Планиметрия</h2>
+                <div class="formula-grid">
+                    <div class="formula-card">
+                        <h3>Площадь треугольника</h3>
+                        <div class="formula-text">
+                            S = ½·a·hₐ<br>
+                            S = ½·ab·sin γ<br>
+                            S = √(p(p−a)(p−b)(p−c)) (Герон)<br>
+                            S = abc/(4R)<br>
+                            S = pr
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Теорема синусов</h3>
+                        <div class="formula-text">
+                            a/sin A = b/sin B = c/sin C = 2R
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Теорема косинусов</h3>
+                        <div class="formula-text">
+                            a² = b² + c² − 2bc·cos A
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Прямоугольный треугольник</h3>
+                        <div class="formula-text">
+                            Теорема Пифагора: a² + b² = c²<br>
+                            Высота из прямого угла: h² = a₁·b₁<br>
+                            Радиус вписанной: r = (a+b−c)/2<br>
+                            Площадь: S = ab/2
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Равносторонний треугольник</h3>
+                        <div class="formula-text">
+                            h = a√3/2<br>
+                            S = a²√3/4<br>
+                            R = a√3/3, r = a√3/6
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Четырёхугольники</h3>
+                        <div class="formula-text">
+                            Прямоугольник: S = ab, P = 2(a+b)<br>
+                            Квадрат: S = a², d = a√2<br>
+                            Параллелограмм: S = a·hₐ = ab·sin α<br>
+                            Ромб: S = a·h = ½·d₁·d₂<br>
+                            Трапеция: S = (a+b)/2 · h, средняя линия = (a+b)/2
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Окружность и круг</h3>
+                        <div class="formula-text">
+                            Длина окружности: C = 2πR<br>
+                            Площадь круга: S = πR²<br>
+                            Длина дуги: L = πR·α/180°<br>
+                            Площадь сектора: S = πR²·α/360°
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Длина биссектрисы</h3>
+                        <div class="formula-text">
+                            l = (2ab·cos(γ/2))/(a+b) или l = √(ab − a₁b₁), где a₁,b₁ — отрезки стороны
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Длина медианы</h3>
+                        <div class="formula-text">
+                            mₐ = ½√(2b² + 2c² − a²)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Стереометрия -->
+            <div class="formula-category">
+                <h2>🧊 Стереометрия</h2>
+                <div class="formula-grid">
+                    <div class="formula-card">
+                        <h3>Куб, призма, параллелепипед</h3>
+                        <div class="formula-text">
+                            V = Sосн·h<br>
+                            Прямоугольный параллелепипед: V = abc<br>
+                            Куб: V = a³, S = 6a²<br>
+                            Призма: Sполн = Sбок + 2Sосн
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Цилиндр и конус</h3>
+                        <div class="formula-text">
+                            Цилиндр: V = πR²h, Sбок = 2πRh, Sполн = 2πR(R+h)<br>
+                            Конус: V = ⅓πR²h, Sбок = πRl, где l = √(R²+h²)
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Пирамида и шар</h3>
+                        <div class="formula-text">
+                            Пирамида: V = ⅓Sосн·h<br>
+                            Шар: V = ⁴⁄₃πR³, S = 4πR²
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Тригонометрия -->
+            <div class="formula-category">
+                <h2>📐 Тригонометрия</h2>
+                <div class="formula-grid">
+                    <div class="formula-card">
+                        <h3>Основные тождества</h3>
+                        <div class="formula-text">
+                            sin²α + cos²α = 1<br>
+                            tgα = sinα/cosα, ctgα = cosα/sinα<br>
+                            1 + tg²α = 1/cos²α, 1 + ctg²α = 1/sin²α
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Формулы сложения</h3>
+                        <div class="formula-text">
+                            sin(α±β) = sinα·cosβ ± cosα·sinβ<br>
+                            cos(α±β) = cosα·cosβ ∓ sinα·sinβ<br>
+                            tg(α±β) = (tgα ± tgβ)/(1 ∓ tgα·tgβ)
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Формулы двойного угла</h3>
+                        <div class="formula-text">
+                            sin2α = 2sinα·cosα<br>
+                            cos2α = cos²α − sin²α = 2cos²α − 1 = 1 − 2sin²α<br>
+                            tg2α = 2tgα/(1−tg²α)
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Преобразование суммы в произведение</h3>
+                        <div class="formula-text">
+                            sinα + sinβ = 2sin((α+β)/2)·cos((α−β)/2)<br>
+                            cosα + cosβ = 2cos((α+β)/2)·cos((α−β)/2)<br>
+                            sinα − sinβ = 2cos((α+β)/2)·sin((α−β)/2)<br>
+                            cosα − cosβ = −2sin((α+β)/2)·sin((α−β)/2)
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Таблица значений</h3>
+                        <div class="formula-text">
+                            0°: sin=0, cos=1, tg=0<br>
+                            30°: sin=½, cos=√3/2, tg=√3/3<br>
+                            45°: sin=√2/2, cos=√2/2, tg=1<br>
+                            60°: sin=√3/2, cos=½, tg=√3<br>
+                            90°: sin=1, cos=0, tg не определён
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Вероятность -->
+            <div class="formula-category">
+                <h2>🎲 Вероятность</h2>
+                <div class="formula-grid">
+                    <div class="formula-card">
+                        <h3>Основные понятия</h3>
+                        <div class="formula-text">
+                            P(A) = m/n (классическая вероятность)<br>
+                            P(A) + P(¬A) = 1<br>
+                            P(A∪B) = P(A) + P(B) − P(A∩B)<br>
+                            Для независимых: P(A∩B) = P(A)·P(B)<br>
+                            Формула Бернулли: Pₙ(k) = Cₙᵏ·pᵏ·qⁿ⁻ᵏ
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Производные -->
+            <div class="formula-category">
+                <h2>📈 Производные</h2>
+                <div class="formula-grid">
+                    <div class="formula-card">
+                        <h3>Правила дифференцирования</h3>
+                        <div class="formula-text">
+                            (c)' = 0<br>
+                            (xⁿ)' = n·xⁿ⁻¹<br>
+                            (u ± v)' = u' ± v'<br>
+                            (uv)' = u'v + uv'<br>
+                            (u/v)' = (u'v − uv')/v²<br>
+                            (sin x)' = cos x<br>
+                            (cos x)' = −sin x<br>
+                            (tg x)' = 1/cos²x<br>
+                            (ctg x)' = −1/sin²x<br>
+                            (eˣ)' = eˣ<br>
+                            (aˣ)' = aˣ·ln a<br>
+                            (ln x)' = 1/x
+                        </div>
+                    </div>
+                    <div class="formula-card">
+                        <h3>Первообразные</h3>
+                        <div class="formula-text">
+                            ∫xⁿ dx = xⁿ⁺¹/(n+1) + C, n ≠ -1<br>
+                            ∫1/x dx = ln|x| + C<br>
+                            ∫sin x dx = −cos x + C<br>
+                            ∫cos x dx = sin x + C<br>
+                            ∫eˣ dx = eˣ + C<br>
+                            ∫aˣ dx = aˣ/ln a + C
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Графики -->
+            <div class="formula-category">
+                <h2>📊 Графики</h2>
+                <div class="formula-grid">
+                    <div class="formula-card">
+                        <h3>Основные функции</h3>
+                        <div class="formula-text">
+                            Линейная: y = kx + b (прямая)<br>
+                            Квадратичная: y = ax² + bx + c (парабола)<br>
+                            Степенная: y = xⁿ<br>
+                            Показательная: y = aˣ<br>
+                            Логарифмическая: y = logₐx<br>
+                            Тригонометрические: y = sin x, y = cos x, y = tg x<br>
+                            Преобразования: сдвиг, растяжение, отражение
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2026 Подготовка к ЕГЭ</p>
+    </footer>
+</body>
+</html>

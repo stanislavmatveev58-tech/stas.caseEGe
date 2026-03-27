@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЕГЭ Математика | Главная</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: #f0f7ff;
+            color: #1e2a3a;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #f1c40f;
+        }
+        main {
+            flex: 1;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .hero {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #e63946;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0.5rem;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #b91c2c;
+        }
+        .btn-secondary {
+            background: #2c3e50;
+        }
+        .btn-secondary:hover {
+            background: #1e2a3a;
+        }
+        .features {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.5rem; }
+            nav ul { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="formulas.html">Формулы</a></li>
+                <li><a href="test.html">Тест</a></li>
+                <li><a href="thanks.html">Обратная связь</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="hero">
+                <h1>Подготовка к ЕГЭ по профильной математике 2026</h1>
+                <p>Интерактивный тест из 12 заданий и справочник формул</p>
+                <a href="test.html" class="btn">Начать тест</a>
+                <a href="formulas.html" class="btn btn-secondary">Формулы</a>
+            </div>
+            <div class="features">
+                <div class="card">
+                    <h3>📝 Тест (1-12)</h3>
+                    <p>12 заданий с проверкой ответов и подробными решениями.</p>
+                </div>
+                <div class="card">
+                    <h3>📚 Формулы</h3>
+                    <p>Все необходимые формулы по разделам математики.</p>
+                </div>
+                <div class="card">
+                    <h3>🎯 Результат</h3>
+                    <p>После теста вы увидите свой балл и сможете повторить ошибки.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2026 Подготовка к ЕГЭ. Все материалы для некоммерческого использования.</p>
+    </footer>
+</body>
+</html>

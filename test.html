@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест | ЕГЭ Математика</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: #f0f7ff;
+            color: #1e2a3a;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #f1c40f;
+        }
+        main {
+            flex: 1;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .question-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .question-image {
+            max-width: 100%;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        .answer-input {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 1rem 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .btn-danger {
+            background: #e63946;
+        }
+        .btn-danger:hover {
+            background: #b91c2c;
+        }
+        .solution {
+            background: #eef2f7;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 4px solid #e63946;
+        }
+        .result {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 2rem;
+        }
+        .feedback-correct {
+            color: green;
+            font-weight: bold;
+        }
+        .feedback-wrong {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="formulas.html">Формулы</a></li>
+                <li><a href="test.html">Тест</a></li>
+                <li><a href="thanks.html">Обратная связь</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div id="test-container">
+                <!-- Здесь будет динамически отображаться интерфейс теста -->
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2025 Подготовка к ЕГЭ</p>
+    </footer>
+
+    <script>
+        // Данные теста (из бота)
+        const testData = [
+            {
+                question: "Стороны параллелограмма равны 18 и 20. Высота, опущенная на меньшую из этих сторон, равна 10. Найдите длину высоты, опущенной на большую сторону параллелограмма.",
+                photo: "https://examer.ru/i/math/upload/26487_1587404566.jpg",
+                correct_answer: "9",
+                solution: "Площадь параллелограмма можно найти по формуле S = a * h_a, где h_a - высота, проведенная к стороне a. Так как площадь постоянна, то a * h_a = b * h_b. Отсюда h_b = (a * h_a) / b = (18 * 10) / 20 = 9."
+            },
+            {
+                question: "На координатной плоскости изображены векторы a→ и b→, координатами которых являются целые числа. Найдите скалярное произведение a→ ⋅ b→.",
+                photo: "https://ege.fipi.ru/docs/AC437B34557F88EA4115D2F374B0A07B/questions/9C1C9B74538ABB0B46B91EABD8A2225D(copy1)/xs3qstsrcBC9E8B534F7498A843AC8AC2FA45A242_2_1710757447.png",
+                correct_answer: "71",
+                solution: "Координаты вектора a→: (8;5). Координаты вектора b→: (7;3). По формуле скалярного произведения: a→⋅b→ = x₁·x₂ + y₁·y₂ = 8·7 + 5·3 = 56 + 15 = 71."
+            },
+            {
+                question: "Цилиндр, объём которого равен 18, описан около шара. Найдите объём шара.",
+                photo: "https://canlidershane.s3.eu-central-1.amazonaws.com/content/static/uploads/files/dosya0_dosya0___so___image-1594469672.png",
+                correct_answer: "12",
+                solution: "Если цилиндр описан около шара, то шар касается оснований и боковой поверхности ⇒ диаметр шара равен высоте цилиндра и диаметру его основания ⇒ цилиндр равносторонний (осевое сечение — квадрат). Обозначим R — радиус шара, тогда радиус основания цилиндра r = R, высота h = 2R. Объём цилиндра V_цил = πr²h = πR²·2R = 2πR³ = 18 ⇒ πR³ = 9. Объём шара V_шар = (4/3)πR³ = (4/3)·9 = 12."
+            },
+            {
+                question: "На конференцию приехали учёные из трёх стран: 9 из Португалии, 7 из Финляндии и 4 из Болгарии. Каждый из них делает на конференции один доклад. Порядок докладов определяется жеребьёвкой. Найдите вероятность того, что седьмым окажется доклад учёного из Португалии.",
+                photo: "",
+                correct_answer: "0,45",
+                solution: "Всего учёных на конференции: 9+7+4=20, всего исходов: N=20. Учёных из Португалии 9, благоприятных исходов: N(A)=9. По формуле классической вероятности: P(A)=N(A)/N = 9/20 = 0,45."
+            },
+            {
+                question: "Помещение освещается тремя лампами. Вероятность перегорания каждой лампы в течение года равна 0,2. Лампы перегорают независимо друг от друга. Найдите вероятность того, что в течение года хотя бы одна лампа не перегорит.",
+                photo: "",
+                correct_answer: "0,992",
+                solution: "Пусть A — событие 'хотя бы одна лампа не перегорит'. Противоположное событие A̅ — 'все три лампы перегорят'. Вероятность перегорания одной лампы P(B)=0,2. Так как лампы независимы, P(A̅)=0,2·0,2·0,2=0,008. Тогда P(A)=1−P(A̅)=1−0,008=0,992."
+            },
+            {
+                question: "Найдите корень уравнения 3^(x-8) = 1/81.",
+                photo: "",
+                correct_answer: "4",
+                solution: "1/81 = 3^(-4), поэтому 3^(x-8) = 3^(-4) ⇒ x-8 = -4 ⇒ x = 4."
+            },
+            {
+                question: "Найдите значение выражения (∛121 · ∜121) / ¹²√121.",
+                photo: "",
+                correct_answer: "11",
+                solution: "Перейдём к степеням: 121^(1/3) * 121^(1/4) / 121^(1/12) = 121^(1/3+1/4-1/12) = 121^(4/12+3/12-1/12) = 121^(6/12) = 121^(1/2) = 11."
+            },
+            {
+                question: "Прямая y = 7x - 5 параллельна касательной к графику функции y = x² + 6x - 8. Найдите абсциссу точки касания.",
+                photo: "",
+                correct_answer: "0,5",
+                solution: "Угловой коэффициент прямой равен 7. Так как прямая параллельна касательной, то угловой коэффициент касательной также равен 7. Производная функции y = x² + 6x - 8 равна y' = 2x + 6. Приравняем: 2x + 6 = 7 ⇒ 2x = 1 ⇒ x = 0,5."
+            },
+            {
+                question: "Водолазный колокол, содержащий υ = 2 моль воздуха объёмом V₁ = 120 л, медленно опускают на дно водоёма. При этом происходит изотермическое сжатие воздуха до конечного объёма V₂ (в л). Работа A (в Дж), совершаемая водой при сжатии воздуха, вычисляется по формуле A = αυT log₂(V₁/V₂), где α = 8,7 Дж/(моль·К) — постоянная, T = 300 К — температура воздуха. Найдите, какой объём V₂ будет занимать воздух в колоколе, если при сжатии воздуха была совершена работа в 10440 Дж. Ответ дайте в литрах.",
+                photo: "",
+                correct_answer: "30",
+                solution: "Подставим значения: 10440 = 8,7·2·300·log₂(120/V₂). Вычисляем: 8,7·2·300 = 5220, тогда 10440 / 5220 = 2, значит log₂(120/V₂) = 2, откуда 120/V₂ = 2² = 4, следовательно V₂ = 120 / 4 = 30 л."
+            },
+            {
+                question: "Имеется два сплава. Первый сплав содержит 40% меди, второй — 25% меди. Масса первого сплава больше массы второго на 10 кг. Из этих двух сплавов получили третий сплав, содержащий 35% меди. Найдите массу третьего сплава. Ответ дайте в килограммах.",
+                photo: "",
+                correct_answer: "30",
+                solution: "Пусть x кг — масса второго сплава, тогда масса первого (x+10) кг. Масса меди в первом: 0,4(x+10), во втором: 0,25x. Масса третьего сплава: (2x+10) кг, меди в нём: 0,35(2x+10). Уравнение: 0,4(x+10) + 0,25x = 0,35(2x+10). Умножаем на 100: 40(x+10)+25x = 35(2x+10) → 40x+400+25x = 70x+350 → 65x+400 = 70x+350 → 50 = 5x → x=10. Тогда масса третьего сплава: 2·10+10 = 30 кг."
+            },
+            {
+    question: "На рисунке изображены графики двух линейных функций, пересекающиеся в точке A. Найдите абсциссу точки A.",
+    photo: "images/test_11.png",
+    correct_answer: "4",
+    solution: "Прямая, проходящая через точки (-4;0) и (0;4): f(x)=x+4. Прямая, проходящая через (0;0) и (1;2): g(x)=2x. Приравниваем: x+4=2x ⇒ x=4."
+            },
+            {
+                question: "Найдите наименьшее значение функции y = x√x − 6x + 3 на отрезке [0; 40].",
+                photo: "",
+                correct_answer: "-29",
+                solution: "Заметим, что x√x = x^(3/2). Тогда y = x^(3/2) − 6x + 3. Производная: y' = (3/2)√x − 6. Решаем y' = 0 → (3/2)√x = 6 → √x = 4 → x = 16 — точка минимума (производная меняет знак с − на +). Вычисляем y(16) = 16·4 − 96 + 3 = 64 − 96 + 3 = −29. На концах отрезка: y(0)=3, y(40)=40√40 − 240 + 3 ≈ 40·6,3249 − 237 ≈ 253 − 237 = 16. Наименьшее значение равно −29."
+            }
+        ];
+
+        // Состояние теста
+        let testState = {
+            currentIndex: 0,
+            correctAnswers: 0,
+            answers: [],      // массив объектов { userAnswer, correct, solutionShown? }
+            wrongQuestions: [], // индексы ошибочных вопросов (для повтора)
+            isRetryMode: false,
+            retryData: null    // массив вопросов для повтора
+        };
+
+        function normalizeAnswer(ans) {
+            // Приводим к строке, убираем пробелы, заменяем запятую на точку
+            let str = String(ans).trim().toLowerCase();
+            str = str.replace(',', '.');
+            return str;
+        }
+
+        function renderQuestion() {
+            const container = document.getElementById('test-container');
+            const questions = testState.isRetryMode ? testState.retryData : testData;
+            if (testState.currentIndex >= questions.length) {
+                finishTest();
+                return;
+            }
+            const q = questions[testState.currentIndex];
+            const progress = `Вопрос ${testState.currentIndex+1} из ${questions.length}`;
+            let html = `
+                <div class="question-card">
+                    <div class="question-text"><strong>${progress}</strong><br><br>${q.question}</div>
+                    ${q.photo ? `<img src="${q.photo}" class="question-image" alt="Иллюстрация">` : ''}
+                    <input type="text" id="answerInput" class="answer-input" placeholder="Введите ваш ответ">
+                    <div class="button-group">
+                        <button onclick="submitAnswer()">Ответить</button>
+                        <button onclick="skipQuestion()">Пропустить</button>
+                        <button onclick="abortTest()" class="btn-danger">Прервать тест</button>
+                    </div>
+                </div>
+            `;
+            container.innerHTML = html;
+            document.getElementById('answerInput').focus();
+        }
+
+        function submitAnswer() {
+            const input = document.getElementById('answerInput');
+            const userAnswerRaw = input.value;
+            const questions = testState.isRetryMode ? testState.retryData : testData;
+            const q = questions[testState.currentIndex];
+            const normalizedUser = normalizeAnswer(userAnswerRaw);
+            const normalizedCorrect = normalizeAnswer(q.correct_answer);
+            const isCorrect = (normalizedUser === normalizedCorrect);
+            
+            // Сохраняем результат
+            testState.answers.push({
+                userAnswer: userAnswerRaw,
+                correct: isCorrect,
+                question: q.question,
+                correctAnswer: q.correct_answer,
+                solution: q.solution
+            });
+            
+            if (isCorrect) {
+                testState.correctAnswers++;
+                showFeedback(true, q.correct_answer);
+                // Автоматически переходим к следующему вопросу через 1.5 секунды
+                setTimeout(() => {
+                    testState.currentIndex++;
+                    renderQuestion();
+                }, 1500);
+            } else {
+                // Неправильный ответ: показываем решение
+                if (!testState.isRetryMode) {
+                    // Запоминаем индекс ошибочного вопроса в основном режиме
+                    const originalIndex = testData.findIndex(item => item.question === q.question);
+                    if (originalIndex !== -1 && !testState.wrongQuestions.includes(originalIndex)) {
+                        testState.wrongQuestions.push(originalIndex);
+                    }
+                }
+                showFeedback(false, q.correct_answer, q.solution);
+                // Ждём, пока пользователь нажмёт "Следующий вопрос"
+                const container = document.getElementById('test-container');
+                const nextButton = document.createElement('button');
+                nextButton.textContent = 'Следующий вопрос';
+                nextButton.onclick = () => {
+                    testState.currentIndex++;
+                    renderQuestion();
+                };
+                const buttonGroup = document.querySelector('.button-group');
+                buttonGroup.appendChild(nextButton);
+                // Убираем кнопку "Ответить", чтобы не нажали повторно
+                const submitBtn = document.querySelector('button[onclick="submitAnswer()"]');
+                if (submitBtn) submitBtn.disabled = true;
+            }
+        }
+        
+        function showFeedback(correct, correctAnswer, solution = null) {
+            const container = document.getElementById('test-container');
+            const card = document.querySelector('.question-card');
+            let feedbackHtml = '';
+            if (correct) {
+                feedbackHtml = `<div class="feedback-correct">✅ Верно!</div>`;
+            } else {
+                feedbackHtml = `
+                    <div class="feedback-wrong">❌ Неверно.</div>
+                    <div class="solution">
+                        <strong>Правильный ответ:</strong> ${correctAnswer}<br><br>
+                        <strong>Решение:</strong> ${solution}
+                    </div>
+                `;
+            }
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.innerHTML = feedbackHtml;
+            card.appendChild(feedbackDiv);
+        }
+        
+        function skipQuestion() {
+            const questions = testState.isRetryMode ? testState.retryData : testData;
+            const q = questions[testState.currentIndex];
+            testState.answers.push({
+                userAnswer: 'пропущено',
+                correct: false,
+                question: q.question,
+                correctAnswer: q.correct_answer,
+                solution: q.solution
+            });
+            if (!testState.isRetryMode) {
+                const originalIndex = testData.findIndex(item => item.question === q.question);
+                if (originalIndex !== -1 && !testState.wrongQuestions.includes(originalIndex)) {
+                    testState.wrongQuestions.push(originalIndex);
+                }
+            }
+            testState.currentIndex++;
+            renderQuestion();
+        }
+        
+        function abortTest() {
+            if (confirm('Вы уверены, что хотите прервать тест?')) {
+                finishTest();
+            }
+        }
+        
+        function finishTest() {
+            const total = testState.isRetryMode ? testState.retryData.length : testData.length;
+            const correct = testState.correctAnswers;
+            let resultMessage = '';
+            if (correct === total) {
+                resultMessage = 'ИДЕАЛЬНО! Все ответы верны! Поздравляю!';
+            } else if (correct >= total * 0.8) {
+                resultMessage = `Отличный результат! ${correct}/${total}`;
+            } else if (correct >= total * 0.6) {
+                resultMessage = `Хорошо! ${correct}/${total}`;
+            } else if (correct >= total * 0.4) {
+                resultMessage = `Неплохо! ${correct}/${total}`;
+            } else {
+                resultMessage = `${correct}/${total}. Нужно подтянуть теорию!`;
+            }
+            
+            let buttonsHtml = '';
+            if (!testState.isRetryMode && testState.wrongQuestions.length > 0) {
+                buttonsHtml = `<button onclick="retryWrong()">Повторить ошибки</button>`;
+            }
+            buttonsHtml += `<button onclick="location.href='index.html'">В главное меню</button>`;
+            
+            const container = document.getElementById('test-container');
+            container.innerHTML = `
+                <div class="result">
+                    <h2>ТЕСТ ЗАВЕРШЁН!</h2>
+                    <p>${resultMessage}</p>
+                    <div class="button-group">${buttonsHtml}</div>
+                </div>
+            `;
+        }
+        
+        function retryWrong() {
+            if (testState.wrongQuestions.length === 0) {
+                alert('Нет ошибочных вопросов для повторения.');
+                return;
+            }
+            const retryQuestions = testState.wrongQuestions.map(idx => testData[idx]);
+            testState = {
+                currentIndex: 0,
+                correctAnswers: 0,
+                answers: [],
+                wrongQuestions: [],
+                isRetryMode: true,
+                retryData: retryQuestions
+            };
+            renderQuestion();
+        }
+        
+        // Инициализация
+        function initTest() {
+            testState = {
+                currentIndex: 0,
+                correctAnswers: 0,
+                answers: [],
+                wrongQuestions: [],
+                isRetryMode: false,
+                retryData: null
+            };
+            renderQuestion();
+        }
+        
+        initTest();
+    </script>
+</body>
+</html>
